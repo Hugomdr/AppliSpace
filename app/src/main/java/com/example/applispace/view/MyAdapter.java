@@ -2,6 +2,7 @@ package com.example.applispace.view;
 
 import java.util.List;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.applispace.R;
 import com.example.applispace.model.Planet;
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Planet> values;
@@ -68,7 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //openSecondActivity();
             }
         });
         holder.txtFooter.setText("View Details");
@@ -79,4 +82,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return values.size();
     }
 
+    /*public void openSecondActivity(){
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
+    }*/
 }
