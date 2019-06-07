@@ -5,7 +5,7 @@ Hugo MANDRON 3A CFA
 # Présentation :
 
 Simple application listant les planètes du système solaire démontrant l'utilisation de Clean Architecture et du pattern MVVM.
-Cette application affiche le pokédex du jeu pokémon et utilise l'API de Github permettant d'aller chercher un fichier sur le repo d'un utilisateur Github.
+Cette application affiche la liste des planètes du système solaire et quelques descriptions et utilise l'API de Github permettant d'aller chercher un fichier sur le repo d'un utilisateur Github.
 
 # Prérequis :
 
@@ -21,8 +21,4 @@ Appels REST
 # Ecrans : 
 
 Affichage d'une liste dans un RecyclerView
-
-
-# Dernière version en état de marche :
-
-Appli Planètes avec photoo (commit ae34683762aa1f01168d05131fa31aa2f65fcb80)
+Affichage de la description des objets
