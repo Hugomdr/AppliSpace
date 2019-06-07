@@ -10,15 +10,18 @@ Cette application affiche la liste des planètes du système solaire et quelques
 # Prérequis :
 
 Installation d'Android Studio
+
 Récupérer la branche master
 https://github.com/Hugomdr/AppliSpace
 
 # Consignes respectées :
 
 Clean Architecture & MVVM
+
 Appels REST
 
 # Ecrans : 
 
 Affichage d'une liste dans un RecyclerView
+
 Affichage de la description des objets
