@@ -8,7 +8,7 @@ public class Planet {
     private String name;
 
     @SerializedName("decouverte")
-    private String datedecouvert;
+    private String decouvert;
 
     @SerializedName("diametre")
     private String diametre;
@@ -24,7 +24,7 @@ public class Planet {
     }
 
     public String getDatedecouvert() {
-        return datedecouvert;
+        return decouvert;
     }
 
     public String getDiametre() {

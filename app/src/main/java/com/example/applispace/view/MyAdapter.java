@@ -1,5 +1,6 @@
 package com.example.applispace.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -13,10 +14,9 @@ import android.widget.TextView;
 import com.example.applispace.R;
 import com.example.applispace.model.Planet;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Planet> values;
+    private MainActivity mainActivity;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -46,8 +46,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<Planet> values) {
+    public MyAdapter(List<Planet> values, MainActivity mainActivity) {
         this.values = values;
+        this.mainActivity = mainActivity;
     }
 
     // Create new views (invoked by the layout manager)
@@ -68,13 +69,33 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - replace the contents of the view with that element
         final Planet selectedPlanet = values.get(position);
         holder.txtHeader.setText(selectedPlanet.getName());
-        holder.txtHeader.setOnClickListener(new OnClickListener() {
+        holder.layout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //openSecondActivity();
+                secondActivity(selectedPlanet);
             }
         });
         holder.txtFooter.setText("View Details");
+    }
+
+    private static final String SelectedPlanet = "selected_planet";
+    private void secondActivity(Planet selectedPlanet) {
+        // Create an Intent to start the second activity
+        Intent infoIntent = new Intent(mainActivity, SecondActivity.class);
+        // Add API info in ArrayList to put in second screen
+
+        ArrayList<String> planet= new ArrayList<>() ;
+
+        planet.add(selectedPlanet.getName());
+        planet.add(selectedPlanet.getDiametre());
+        planet.add(selectedPlanet.getDistmoysun());
+        planet.add(selectedPlanet.getDistmoy());
+        planet.add(selectedPlanet.getDatedecouvert());
+
+        infoIntent.putStringArrayListExtra(SelectedPlanet,planet);
+
+        // Start the new activity.
+        mainActivity.startActivity(infoIntent);
     }
 
     @Override
@@ -82,8 +103,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return values.size();
     }
 
-    /*public void openSecondActivity(){
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
-    }*/
 }

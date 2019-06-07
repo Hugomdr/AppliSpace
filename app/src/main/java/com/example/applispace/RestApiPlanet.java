@@ -1,6 +1,8 @@
 package com.example.applispace;
 
-import com.example.applispace.model.RestPlanetResponse;
+import com.example.applispace.model.Planet;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -8,6 +10,6 @@ import retrofit2.http.GET;
 public interface RestApiPlanet {
 
     @GET("api/planetes/planetesdata")
-    Call<RestPlanetResponse> getPlanetData();
+    Call<List<Planet>> getPlanetData();
 
 }

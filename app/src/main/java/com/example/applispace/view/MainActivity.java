@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
         recyclerView.setLayoutManager(layoutManager);
         // define an adapter
         //Instanciation de mAdapter
-        mAdapter = new MyAdapter(planetList);
+        mAdapter = new MyAdapter(planetList,this);
         recyclerView.setAdapter(mAdapter);
     }
 }

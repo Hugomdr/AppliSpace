@@ -22,14 +22,20 @@ public class SecondActivity extends AppCompatActivity {
     public void showDescription() {
 
         // Get the text view where the description is displayed
-        TextView descriptionView = findViewById(R.id.description);
+        TextView diameterView = findViewById(R.id.description);
         // Get the text view where the title is displayed
         TextView titleView = findViewById(R.id.title);
+        TextView distmoysun = findViewById(R.id.textView);
+        TextView distmoyen = findViewById(R.id.textView2);
+        TextView datedecouverte = findViewById(R.id.textView3);
 
         //String planet = getIntent().getStringExtra(SelectedPlanet);
         ArrayList<String> planet = getIntent().getStringArrayListExtra(SelectedPlanet);
 
         titleView.setText(planet.get(0));
-        descriptionView.setText(planet.get(1));
+        diameterView.setText("Diametre " + planet.get(1) + " km");
+        distmoysun.setText("Distance moyenne soleil :" + planet.get(2) +" M km");
+        distmoyen.setText("Distance moyenne terre :" + planet.get(3) + " M km");
+        datedecouverte.setText("Date de découverte :" + planet.get(4));
     }
 }
